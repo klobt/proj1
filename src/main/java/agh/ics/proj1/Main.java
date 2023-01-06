@@ -1,4 +1,4 @@
-package agh.ics;
+package agh.ics.proj1;
 
 public class Main {
     public static void main(String[] args) {

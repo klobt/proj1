@@ -22,7 +22,7 @@ public class GrassTest {
                     }
                 }
             }
-            assert(Math.abs((double) preferredN / (width * height) - 0.2) <= 1e-3);
+            assert(Math.abs(preferredN - (width * height) * 0.2) <= 1);
         }
     }
 

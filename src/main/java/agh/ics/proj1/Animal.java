@@ -3,6 +3,7 @@ package agh.ics.proj1;
 public class Animal {
     private int orientation;
     public Tile tile;
+    private double energy = 1;
 
     public Animal(int _orientation) {
         orientation = _orientation;
@@ -18,5 +19,13 @@ public class Animal {
 
     public void turnBack() {
         orientation = (orientation + 4) % 8;
+    }
+
+    public double getEnergy() {
+        return energy;
+    }
+
+    public void addEnergy(double change) {
+        energy += change;
     }
 }

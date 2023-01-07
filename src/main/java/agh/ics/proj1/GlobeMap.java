@@ -1,6 +1,9 @@
 package agh.ics.proj1;
 
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
+import java.util.Stack;
 
 public class GlobeMap {
     private final Vector2d bounds;
@@ -13,7 +16,7 @@ public class GlobeMap {
         }
         for (int y = 0; y < height; y++) {
             for (int x = 0; x < width; x++) {
-                tiles.add(new SquareTile());
+                tiles.add(new GrassTile(false));
             }
         }
         for (int x = 0; x < width; x++) {
@@ -49,6 +52,29 @@ public class GlobeMap {
             at(x, height).connect(at(left, height - 1), 5);
             at(x, height).connect(at(x, height - 1), 4);
             at(x, height).connect(at(right, height - 1), 3);
+        }
+        int preferredN = 0;
+        Set<GrassTile> visitedTiles = new HashSet<>();
+        Stack<GrassTile> tileStack = new Stack<>();
+        GrassTile centerTile = (GrassTile) at(bounds.times(0.5));
+        if (centerTile != null) {
+            tileStack.push(centerTile);
+            while (!tileStack.empty()) {
+                GrassTile tile = tileStack.pop();
+                tile.preferred = true;
+                preferredN++;
+                if (preferredN >= width * height * 0.2) {
+                    break;
+                }
+                visitedTiles.add(tile);
+                for (int direction = 0; direction < 8; direction++) {
+                    if (tile.getNeighbour(direction) instanceof GrassTile nextTile) {
+                        if (!visitedTiles.contains(nextTile)) {
+                            tileStack.push(nextTile);
+                        }
+                    }
+                }
+            }
         }
     }
 

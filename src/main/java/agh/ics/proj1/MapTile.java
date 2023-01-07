@@ -7,6 +7,10 @@ public class MapTile implements Tile {
         neighbours[direction] = neighbour;
     }
 
+    public Tile getNeighbour(int direction) {
+        return neighbours[direction];
+    }
+
     @Override
     public void place(Animal animal) {
     }

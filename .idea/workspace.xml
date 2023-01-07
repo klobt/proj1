@@ -4,8 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fd36effe-b965-4fa7-b6c4-73095c763444" name="Changes" comment="Add growing grass in the center, and eating mechanic">
+    <list default="true" id="fd36effe-b965-4fa7-b6c4-73095c763444" name="Changes" comment="Make simulation configurable">
+      <change afterPath="$PROJECT_DIR$/src/main/java/agh/ics/proj1/Config.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/agh/ics/proj1/Animal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/agh/ics/proj1/Animal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/agh/ics/proj1/GlobeMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/agh/ics/proj1/GlobeMap.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/agh/ics/proj1/GrassTile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/agh/ics/proj1/GrassTile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/agh/ics/proj1/GlobeTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/agh/ics/proj1/GlobeTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/agh/ics/proj1/GrassTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/agh/ics/proj1/GrassTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -213,7 +218,14 @@
       <option name="project" value="LOCAL" />
       <updated>1673102255239</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Use 1 tile as error for more accuracy">
+      <created>1673105266546</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1673105266546</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -222,6 +234,8 @@
     <MESSAGE value="Working globe map" />
     <MESSAGE value="Vector2d: switch from int to double, add some methods" />
     <MESSAGE value="Add growing grass in the center, and eating mechanic" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add growing grass in the center, and eating mechanic" />
+    <MESSAGE value="Use 1 tile as error for more accuracy" />
+    <MESSAGE value="Make simulation configurable" />
+    <option name="LAST_COMMIT_MESSAGE" value="Make simulation configurable" />
   </component>
 </project>

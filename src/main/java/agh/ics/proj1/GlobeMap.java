@@ -9,23 +9,23 @@ public class GlobeMap {
     private final Vector2d bounds;
     private final ArrayList<MapTile> tiles = new ArrayList<>();
 
-    public GlobeMap(int width, int height) {
-        bounds = new Vector2d(width, height);
-        for (int x = 0; x < width; x++) {
+    public GlobeMap(Config config) {
+        bounds = new Vector2d(config.mapWidth, config.mapHeight);
+        for (int x = 0; x < bounds.getIntX(); x++) {
             tiles.add(new PolarTile());
         }
-        for (int y = 0; y < height; y++) {
-            for (int x = 0; x < width; x++) {
-                tiles.add(new GrassTile(false));
+        for (int y = 0; y < bounds.getIntY(); y++) {
+            for (int x = 0; x < bounds.getIntX(); x++) {
+                tiles.add(new GrassTile(config, false));
             }
         }
-        for (int x = 0; x < width; x++) {
+        for (int x = 0; x < bounds.getIntX(); x++) {
             tiles.add(new PolarTile());
         }
-        for (int y = 0; y < height; y++) {
-            for (int x = 0; x < width; x++) {
-                int left = (x - 1 + width) % width;
-                int right = (x + 1 + width) % width;
+        for (int y = 0; y < bounds.getIntY(); y++) {
+            for (int x = 0; x < bounds.getIntX(); x++) {
+                int left = (x - 1 + bounds.getIntX()) % bounds.getIntX();
+                int right = (x + 1 + bounds.getIntX()) % bounds.getIntX();
                 int down = y - 1;
                 int up = y + 1;
                 Vector2d[] positions = {
@@ -43,15 +43,15 @@ public class GlobeMap {
                 }
             }
         }
-        for (int x = 0; x < width; x++) {
-            int left = (x - 1 + width) % width;
-            int right = (x + 1 + width) % width;
+        for (int x = 0; x < bounds.getIntX(); x++) {
+            int left = (x - 1 + bounds.getIntX()) % bounds.getIntX();
+            int right = (x + 1 + bounds.getIntX()) % bounds.getIntX();
             at(x, -1).connect(at(left, 0), 7);
             at(x, -1).connect(at(x, 0), 0);
             at(x, -1).connect(at(right, 0), 1);
-            at(x, height).connect(at(left, height - 1), 5);
-            at(x, height).connect(at(x, height - 1), 4);
-            at(x, height).connect(at(right, height - 1), 3);
+            at(x, bounds.getIntY()).connect(at(left, bounds.getIntY() - 1), 5);
+            at(x, bounds.getIntY()).connect(at(x, bounds.getIntY() - 1), 4);
+            at(x, bounds.getIntY()).connect(at(right, bounds.getIntY() - 1), 3);
         }
         int preferredN = 0;
         Set<GrassTile> visitedTiles = new HashSet<>();
@@ -63,7 +63,7 @@ public class GlobeMap {
                 GrassTile tile = tileStack.pop();
                 tile.preferred = true;
                 preferredN++;
-                if (preferredN >= width * height * 0.2) {
+                if (preferredN >= bounds.getIntX() * bounds.getIntY() * 0.2) {
                     break;
                 }
                 visitedTiles.add(tile);

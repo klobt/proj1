@@ -3,10 +3,11 @@ package agh.ics.proj1;
 public class Animal {
     private int orientation;
     public Tile tile;
-    private double energy = 1;
+    private double energy;
 
-    public Animal(int _orientation) {
+    public Animal(Config config, int _orientation) {
         orientation = _orientation;
+        energy = config.animalInitialEnergy;
     }
 
     public int getOrientation() {

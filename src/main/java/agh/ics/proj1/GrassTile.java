@@ -5,11 +5,13 @@ import java.util.Random;
 import java.util.Set;
 
 public class GrassTile extends MapTile {
+    private final Config config;
     private final Set<Animal> animals = new HashSet<>();
     public boolean preferred;
     private boolean hasGrass = false;
 
-    public GrassTile(boolean _preffered) {
+    public GrassTile(Config _config, boolean _preffered) {
+        config = _config;
         this.preferred = _preffered;
     }
 
@@ -18,7 +20,7 @@ public class GrassTile extends MapTile {
         animals.add(animal);
         animal.tile = this;
         if (hasGrass) {
-            animal.addEnergy(10);
+            animal.addEnergy(config.grassEnergy);
             hasGrass = false;
         }
     }

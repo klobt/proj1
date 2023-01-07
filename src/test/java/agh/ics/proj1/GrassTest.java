@@ -11,7 +11,8 @@ public class GrassTest {
         for (int i = 0; i < 10; i++) {
             int width = random.nextInt(1000);
             int height = random.nextInt(1000);
-            GlobeMap globeMap = new GlobeMap(width, height);
+            Config config = new Config(width, height, 0, 0);
+            GlobeMap globeMap = new GlobeMap(config);
             int preferredN = 0;
             for (int y = 0; y < height; y++) {
                 for (int x = 0; x < width; x++) {
@@ -28,13 +29,14 @@ public class GrassTest {
 
     @Test
     public void eatingTest() {
+        Config config = new Config(0, 0, 10, 1);
         for (int i = 0; i < 100; i++) {
             Random random = new Random();
             int n = random.nextInt(1000);
             GrassTile[] tiles = new GrassTile[n];
             int grassN = 0;
             for (int j = 0; j < n; j++) {
-                tiles[j] = new GrassTile(random.nextBoolean());
+                tiles[j] = new GrassTile(config, random.nextBoolean());
                 if (tiles[j].growGrass(random)) {
                     grassN++;
                 }
@@ -44,7 +46,7 @@ public class GrassTest {
                     tiles[j].connect(tiles[j + 1], 2);
                 }
             }
-            Animal animal = new Animal(2);
+            Animal animal = new Animal(config, 2);
             tiles[0].place(animal);
             for (int j = 0; j < n - 1; j++) {
                 animal.move();

@@ -53,10 +53,10 @@ public class GlobeMap {
     }
 
     public MapTile at(int x, int y) {
-        return tiles.get((y + 1) * bounds.x + x);
+        return tiles.get((y + 1) * bounds.getIntX() + x);
     }
 
     public MapTile at(Vector2d position) {
-        return at(position.x, position.y);
+        return at(position.getIntX(), position.getIntY());
     }
 }

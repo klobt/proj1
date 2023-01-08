@@ -1,15 +1,24 @@
 package agh.ics.proj1;
 
+import java.util.Arrays;
+
 public class Animal {
     private final Config config;
     private int orientation;
     public Tile tile;
     private int energy;
+    private final int[] genome;
+    private int active = 0;
 
-    public Animal(Config config, int orientation) {
+    public Animal(Config config, int orientation, int[] genome) {
         this.config = config;
         this.orientation = orientation;
         energy = config.animalInitialEnergy;
+        this.genome = Arrays.copyOf(genome, config.genomeLength);
+    }
+
+    public Animal(Config config, int orientation) {
+        this(config, orientation, new int[config.genomeLength]);
     }
 
     public int getOrientation() {
@@ -17,8 +26,10 @@ public class Animal {
     }
 
     public void move() {
+        orientation = (orientation + genome[active]) % 8;
         tile.moveForward(this);
         energy -= config.animalMoveEnergyCost;
+        active = (active + 1) % genome.length;
     }
 
     public void turnBack() {

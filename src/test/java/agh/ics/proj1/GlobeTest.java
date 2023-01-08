@@ -61,7 +61,7 @@ public class GlobeTest {
                                 int[] orientations,
                                 int steps,
                                 Vector2d[] finalPositions) {
-        Config config = new Config(width, height, 0, 0, 0);
+        Config config = new Config(width, height, 0, 0, 0, 1);
         GlobeMap globeMap = new GlobeMap(config);
         int n = orientations.length;
         Animal[] animals = Arrays.stream(orientations)

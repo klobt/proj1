@@ -4,10 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fd36effe-b965-4fa7-b6c4-73095c763444" name="Changes" comment="Remove underscores in constructor arguments">
+    <list default="true" id="fd36effe-b965-4fa7-b6c4-73095c763444" name="Changes" comment="Energy should be an integer">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/agh/ics/proj1/Animal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/agh/ics/proj1/Animal.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/agh/ics/proj1/Config.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/agh/ics/proj1/Config.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/agh/ics/proj1/GlobeTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/agh/ics/proj1/GlobeTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/agh/ics/proj1/GrassTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/agh/ics/proj1/GrassTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -47,7 +48,7 @@
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RunManager" selected="Gradle.Tests in 'proj1.test'">
+  <component name="RunManager" selected="Gradle.GrassTest.eatingTest">
     <configuration name="GlobeTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -163,9 +164,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.GrassTest.eatingTest" />
         <item itemvalue="Gradle.Tests in 'proj1.test'" />
         <item itemvalue="Gradle.GrassTest" />
-        <item itemvalue="Gradle.GrassTest.eatingTest" />
         <item itemvalue="Gradle.GrassTest.paretoTest" />
         <item itemvalue="Gradle.GlobeTest" />
       </list>
@@ -236,7 +237,14 @@
       <option name="project" value="LOCAL" />
       <updated>1673177495652</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Energy should be an integer">
+      <created>1673179894433</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1673179894433</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -248,6 +256,18 @@
     <MESSAGE value="Use 1 tile as error for more accuracy" />
     <MESSAGE value="Make simulation configurable" />
     <MESSAGE value="Remove underscores in constructor arguments" />
-    <option name="LAST_COMMIT_MESSAGE" value="Remove underscores in constructor arguments" />
+    <MESSAGE value="Energy should be an integer" />
+    <option name="LAST_COMMIT_MESSAGE" value="Energy should be an integer" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/agh/ics/proj1/GrassTest.java</url>
+          <line>57</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

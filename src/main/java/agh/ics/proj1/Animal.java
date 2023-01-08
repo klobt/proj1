@@ -1,11 +1,13 @@
 package agh.ics.proj1;
 
 public class Animal {
+    private final Config config;
     private int orientation;
     public Tile tile;
     private int energy;
 
     public Animal(Config config, int orientation) {
+        this.config = config;
         this.orientation = orientation;
         energy = config.animalInitialEnergy;
     }
@@ -16,6 +18,7 @@ public class Animal {
 
     public void move() {
         tile.moveForward(this);
+        energy -= config.animalMoveEnergyCost;
     }
 
     public void turnBack() {

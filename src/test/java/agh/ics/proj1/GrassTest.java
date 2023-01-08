@@ -51,11 +51,103 @@ public class GrassTest {
             }
             Animal animal = new Animal(config, 2);
             tiles[0].place(animal);
+            tiles[0].feed();
             for (int j = 0; j < n - 1; j++) {
                 animal.move();
+                tiles[j + 1].feed();
             }
             assert(tiles[n - 1].has(animal));
             assert(animal.getEnergy() == initialEnergy + grassN * grassEnergy - (n - 1) * energyCost);
+        }
+    }
+
+    @Test
+    public void peckingOrderTest() {
+        for (int i = 0; i < 10; i++) {
+            Random random = new Random();
+            int grassEnergy = random.nextInt(100);
+            int initialEnergy = random.nextInt(100);
+            int energyCost = random.nextInt(100);
+            Config config = new Config(0, 0, grassEnergy, initialEnergy, energyCost, 1);
+
+            int energyHi = random.nextInt(100) + 20;
+            int energyLo = random.nextInt(20);
+            int ageHi = random.nextInt(100) + 20;
+            int ageLo = random.nextInt(20);
+            int childrenHi = random.nextInt(100);
+
+            {
+                GrassTile tile = new GrassTile(config, true);
+
+                Animal lowEnergyYoungNoChildren = new Animal(config, 0);
+                lowEnergyYoungNoChildren.setStats(energyLo, 0, ageLo);
+                tile.place(lowEnergyYoungNoChildren);
+
+                while (!tile.growGrass(random));
+                tile.feed();
+
+                assert (lowEnergyYoungNoChildren.getEnergy() == energyLo + grassEnergy);
+            }
+            {
+                GrassTile tile = new GrassTile(config, true);
+
+                Animal lowEnergyYoungNoChildren = new Animal(config, 0);
+                lowEnergyYoungNoChildren.setStats(energyLo, 0, ageLo);
+                tile.place(lowEnergyYoungNoChildren);
+
+                Animal highEnergyYoungNoChildren = new Animal(config, 0);
+                highEnergyYoungNoChildren.setStats(energyHi, 0, ageLo);
+                tile.place(highEnergyYoungNoChildren);
+
+                while (!tile.growGrass(random));
+                tile.feed();
+
+                assert (highEnergyYoungNoChildren.getEnergy() == energyHi + grassEnergy);
+            }
+            {
+                GrassTile tile = new GrassTile(config, true);
+
+                Animal lowEnergyYoungNoChildren = new Animal(config, 0);
+                lowEnergyYoungNoChildren.setStats(energyLo, 0, ageLo);
+                tile.place(lowEnergyYoungNoChildren);
+
+                Animal highEnergyYoungNoChildren = new Animal(config, 0);
+                highEnergyYoungNoChildren.setStats(energyHi, 0, ageLo);
+                tile.place(highEnergyYoungNoChildren);
+
+                Animal highEnergyOldNoChildren = new Animal(config, 0);
+                highEnergyOldNoChildren.setStats(energyHi, 0, ageHi);
+                tile.place(highEnergyOldNoChildren);
+
+                while (!tile.growGrass(random));
+                tile.feed();
+
+                assert (highEnergyOldNoChildren.getEnergy() == energyHi + grassEnergy);
+            }
+            {
+                GrassTile tile = new GrassTile(config, true);
+
+                Animal lowEnergyYoungNoChildren = new Animal(config, 0);
+                lowEnergyYoungNoChildren.setStats(energyLo, 0, ageLo);
+                tile.place(lowEnergyYoungNoChildren);
+
+                Animal highEnergyYoungNoChildren = new Animal(config, 0);
+                highEnergyYoungNoChildren.setStats(energyHi, 0, ageLo);
+                tile.place(highEnergyYoungNoChildren);
+
+                Animal highEnergyOldNoChildren = new Animal(config, 0);
+                highEnergyOldNoChildren.setStats(energyHi, 0, ageHi);
+                tile.place(highEnergyOldNoChildren);
+
+                Animal highEnergyOldManyChildren = new Animal(config, 0);
+                highEnergyOldManyChildren.setStats(energyHi, childrenHi, ageHi);
+                tile.place(highEnergyOldManyChildren);
+
+                while (!tile.growGrass(random));
+                tile.feed();
+
+                assert (highEnergyOldManyChildren.getEnergy() == energyHi + grassEnergy);
+            }
         }
     }
 }

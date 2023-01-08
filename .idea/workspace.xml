@@ -4,12 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fd36effe-b965-4fa7-b6c4-73095c763444" name="Changes" comment="Add genomes">
-      <change afterPath="$PROJECT_DIR$/src/test/java/agh/ics/proj1/GenomeTest.java" afterDir="false" />
+    <list default="true" id="fd36effe-b965-4fa7-b6c4-73095c763444" name="Changes" comment="Resolve conflicts when multiple animals compete for grass">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/agh/ics/proj1/Animal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/agh/ics/proj1/Animal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/agh/ics/proj1/Config.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/agh/ics/proj1/Config.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/agh/ics/proj1/GlobeTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/agh/ics/proj1/GlobeTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/agh/ics/proj1/GrassTile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/agh/ics/proj1/GrassTile.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/agh/ics/proj1/GrassTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/agh/ics/proj1/GrassTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -49,30 +47,7 @@
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RunManager" selected="Gradle.GenomeTest.squareMovement">
-    <configuration name="GenomeTest.movement" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":test" />
-            <option value="--tests" />
-            <option value="&quot;agh.ics.proj1.GenomeTest.movement&quot;" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="Gradle.GrassTest.peckingOrderTest">
     <configuration name="GenomeTest.squareMovement" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -142,6 +117,29 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
+    <configuration name="GrassTest.peckingOrderTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;agh.ics.proj1.GrassTest.peckingOrderTest&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
     <configuration name="Tests in 'proj1.test'" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -165,11 +163,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.GenomeTest.squareMovement" />
-        <item itemvalue="Gradle.GlobeTest" />
-        <item itemvalue="Gradle.GenomeTest.movement" />
+        <item itemvalue="Gradle.GrassTest.peckingOrderTest" />
         <item itemvalue="Gradle.GrassTest.eatingTest" />
         <item itemvalue="Gradle.Tests in 'proj1.test'" />
+        <item itemvalue="Gradle.GenomeTest.squareMovement" />
+        <item itemvalue="Gradle.GlobeTest" />
       </list>
     </recent_temporary>
   </component>
@@ -252,7 +250,14 @@
       <option name="project" value="LOCAL" />
       <updated>1673180310582</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Add genomes">
+      <created>1673189133985</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1673189133985</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -267,6 +272,14 @@
     <MESSAGE value="Energy should be an integer" />
     <MESSAGE value="Add energy loss" />
     <MESSAGE value="Add genomes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add genomes" />
+    <MESSAGE value="Resolve conflicts when multiple animals compete for grass" />
+    <option name="LAST_COMMIT_MESSAGE" value="Resolve conflicts when multiple animals compete for grass" />
+  </component>
+  <component name="XDebuggerManager">
+    <pin-to-top-manager>
+      <pinned-members>
+        <PinnedItemInfo parentTag="agh.ics.proj1.Animal" memberName="genome" />
+      </pinned-members>
+    </pin-to-top-manager>
   </component>
 </project>

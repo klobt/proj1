@@ -1,12 +1,24 @@
 package agh.ics.proj1;
 
-import java.util.HashSet;
-import java.util.Random;
-import java.util.Set;
+import java.util.*;
+
+class PeckingOrder implements Comparator<Animal> {
+    @Override
+    public int compare(Animal a1, Animal a2) {
+        int result = a1.getEnergy() - a2.getEnergy();
+        if (result == 0) {
+            result = a1.getMovesMade() - a2.getMovesMade();
+        }
+        if (result == 0) {
+            result = a1.getChildrenBegotten() - a2.getChildrenBegotten();
+        }
+        return result;
+    }
+}
 
 public class GrassTile extends MapTile {
     private final Config config;
-    private final Set<Animal> animals = new HashSet<>();
+    private final SortedSet<Animal> animals = new TreeSet<>(new PeckingOrder());
     public boolean preferred;
     private boolean hasGrass = false;
 
@@ -19,8 +31,11 @@ public class GrassTile extends MapTile {
     public void place(Animal animal) {
         animals.add(animal);
         animal.tile = this;
-        if (hasGrass) {
-            animal.addEnergy(config.grassEnergy);
+    }
+
+    public void feed() {
+        if (hasGrass && !animals.isEmpty()) {
+            animals.last().addEnergy(config.grassEnergy);
             hasGrass = false;
         }
     }

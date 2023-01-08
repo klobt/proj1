@@ -33,9 +33,8 @@ public class GrassTest {
             Random random = new Random();
             int grassEnergy = random.nextInt(100);
             int initialEnergy = random.nextInt(100);
-            int energyCost = random.nextInt(100);
             int n = random.nextInt(1000);
-            Config config = new Config(random, 0, 0, grassEnergy, initialEnergy, energyCost, 1, 0);
+            Config config = new Config(random, 0, 0, grassEnergy, initialEnergy, 0, 1, 0);
             GrassTile[] tiles = new GrassTile[n];
             int grassN = 0;
             for (int j = 0; j < n; j++) {
@@ -57,7 +56,7 @@ public class GrassTest {
                 tiles[j + 1].feed();
             }
             assert(tiles[n - 1].has(animal));
-            assert(animal.getEnergy() == initialEnergy + grassN * grassEnergy - (n - 1) * energyCost);
+            assert(animal.getEnergy() == initialEnergy + grassN * grassEnergy);
         }
     }
 

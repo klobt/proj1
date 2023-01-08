@@ -31,7 +31,7 @@ public class Animal {
         double domShare = ((double) domParent.energy) / (double) (domParent.energy + subParent.energy);
         int domGenes = (int) (domShare * config.genomeLength);
         int subGenes = config.genomeLength - domGenes;
-        energy = parent1.takeEnergy(0.5) + parent2.takeEnergy(0.5);
+        energy = parent1.takeEnergy(config.energyToBreed) + parent2.takeEnergy(config.energyToBreed);
 
         genome = new int[config.genomeLength];
         int domGenomeOffset = 0;
@@ -49,11 +49,12 @@ public class Animal {
     }
 
     public void move() {
-        orientation = (orientation + genome[active]) % 8;
-        tile.moveForward(this);
-        energy -= config.animalMoveEnergyCost;
-        active = (active + 1) % genome.length;
-        movesMade++;
+        if (takeEnergy(config.animalMoveEnergyCost) == config.animalMoveEnergyCost) {
+            orientation = (orientation + genome[active]) % 8;
+            tile.moveForward(this);
+            active = (active + 1) % genome.length;
+            movesMade++;
+        }
     }
 
     public void turnBack() {
@@ -64,13 +65,12 @@ public class Animal {
         return energy;
     }
 
-    public void addEnergy(double change) {
+    public void addEnergy(int change) {
         energy += change;
     }
 
-    public int takeEnergy(double percentage) {
-        assert(percentage >= 0 && percentage <= 1);
-        int taken = (int) (energy * percentage);
+    public int takeEnergy(int taken) {
+        taken = Math.min(taken, energy);
         energy -= taken;
         return taken;
     }

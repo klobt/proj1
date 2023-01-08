@@ -7,7 +7,7 @@ import java.util.Random;
 public class GenomeTest {
     @Test
     public void squareMovementTest() {
-        Config config = new Config(4, 4, 0, 0, 0, 1, 0);
+        Config config = new Config().mapDimensions(4, 4);
         GlobeMap globeMap = new GlobeMap(config);
         Animal animal = new Animal(config, 2, new int[] {2});
         globeMap.at(0, 0).place(animal);
@@ -22,15 +22,24 @@ public class GenomeTest {
         for (int i = 0; i < 10; i++) {
             int genomeLength = random.nextInt(10) + 1;
             int initalEnergy = random.nextInt(100);
-            Config config = new Config(random, 0, 0, 0, initalEnergy, 0, genomeLength, 0);
+            int energyToBreed = random.nextInt(initalEnergy);
+            Config config = new Config()
+                    .random(random)
+                    .animalInitialEnergy(initalEnergy)
+                    .genomeLength(genomeLength)
+                    .energyToBreed(energyToBreed);
             GrassTile tile = new GrassTile(config, true);
-            int[] genome = new int[genomeLength];
+            int[] genome1 = new int[genomeLength];
             for (int j = 0; j < genomeLength; j++) {
-                genome[j] = config.random.nextInt(8);
+                genome1[j] = config.random.nextInt(8);
             }
-            Animal a1 = new Animal(config, 0, genome);
-            Animal a2 = new Animal(config, 0, genome);
-            a2.setStats(random.nextInt(100), 0, 0);
+            Animal a1 = new Animal(config, 0, genome1);
+            int[] genome2 = new int[genomeLength];
+            for (int j = 0; j < genomeLength; j++) {
+                genome2[j] = config.random.nextInt(8);
+            }
+            Animal a2 = new Animal(config, 0, genome2);
+            a2.setStats(random.nextInt(100) + energyToBreed, 0, 0);
             tile.place(a1);
             tile.place(a2);
             int totalEnergy = a1.getEnergy() + a2.getEnergy();

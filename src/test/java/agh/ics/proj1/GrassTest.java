@@ -11,7 +11,7 @@ public class GrassTest {
         for (int i = 0; i < 10; i++) {
             int width = random.nextInt(1000);
             int height = random.nextInt(1000);
-            Config config = new Config(width, height, 0, 0, 0, 0, 0);
+            Config config = new Config().mapDimensions(width, height);
             GlobeMap globeMap = new GlobeMap(config);
             int preferredN = 0;
             for (int y = 0; y < height; y++) {
@@ -34,7 +34,7 @@ public class GrassTest {
             int grassEnergy = random.nextInt(100);
             int initialEnergy = random.nextInt(100);
             int n = random.nextInt(1000);
-            Config config = new Config(random, 0, 0, grassEnergy, initialEnergy, 0, 1, 0);
+            Config config = new Config().random(random).grassEnergy(grassEnergy).animalInitialEnergy(initialEnergy);
             GrassTile[] tiles = new GrassTile[n];
             int grassN = 0;
             for (int j = 0; j < n; j++) {
@@ -67,7 +67,11 @@ public class GrassTest {
             int grassEnergy = random.nextInt(100);
             int initialEnergy = random.nextInt(100);
             int energyCost = random.nextInt(100);
-            Config config = new Config(random, 0, 0, grassEnergy, initialEnergy, energyCost, 1, 0);
+            Config config = new Config()
+                    .random(random)
+                    .grassEnergy(grassEnergy)
+                    .animalInitialEnergy(initialEnergy)
+                    .animalMoveEnergyCost(energyCost);
 
             int energyHi = random.nextInt(100) + 20;
             int energyLo = random.nextInt(20);

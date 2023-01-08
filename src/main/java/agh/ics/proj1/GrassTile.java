@@ -54,8 +54,8 @@ public class GrassTile extends MapTile {
         }
     }
 
-    public boolean growGrass(Random random) {
-        if (!hasGrass && random.nextDouble() < (preferred ? 0.8 : 0.2)) {
+    public boolean growGrass() {
+        if (!hasGrass && config.random.nextDouble() < (preferred ? 0.8 : 0.2)) {
             hasGrass = true;
             return true;
         }

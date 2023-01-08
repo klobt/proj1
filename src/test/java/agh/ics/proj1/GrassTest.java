@@ -35,12 +35,12 @@ public class GrassTest {
             int initialEnergy = random.nextInt(100);
             int energyCost = random.nextInt(100);
             int n = random.nextInt(1000);
-            Config config = new Config(0, 0, grassEnergy, initialEnergy, energyCost, 1);
+            Config config = new Config(random, 0, 0, grassEnergy, initialEnergy, energyCost, 1);
             GrassTile[] tiles = new GrassTile[n];
             int grassN = 0;
             for (int j = 0; j < n; j++) {
                 tiles[j] = new GrassTile(config, random.nextBoolean());
-                if (tiles[j].growGrass(random)) {
+                if (tiles[j].growGrass()) {
                     grassN++;
                 }
             }
@@ -68,7 +68,7 @@ public class GrassTest {
             int grassEnergy = random.nextInt(100);
             int initialEnergy = random.nextInt(100);
             int energyCost = random.nextInt(100);
-            Config config = new Config(0, 0, grassEnergy, initialEnergy, energyCost, 1);
+            Config config = new Config(random, 0, 0, grassEnergy, initialEnergy, energyCost, 1);
 
             int energyHi = random.nextInt(100) + 20;
             int energyLo = random.nextInt(20);
@@ -83,7 +83,7 @@ public class GrassTest {
                 lowEnergyYoungNoChildren.setStats(energyLo, 0, ageLo);
                 tile.place(lowEnergyYoungNoChildren);
 
-                while (!tile.growGrass(random));
+                while (!tile.growGrass());
                 tile.feed();
 
                 assert (lowEnergyYoungNoChildren.getEnergy() == energyLo + grassEnergy);
@@ -99,7 +99,7 @@ public class GrassTest {
                 highEnergyYoungNoChildren.setStats(energyHi, 0, ageLo);
                 tile.place(highEnergyYoungNoChildren);
 
-                while (!tile.growGrass(random));
+                while (!tile.growGrass());
                 tile.feed();
 
                 assert (highEnergyYoungNoChildren.getEnergy() == energyHi + grassEnergy);
@@ -119,7 +119,7 @@ public class GrassTest {
                 highEnergyOldNoChildren.setStats(energyHi, 0, ageHi);
                 tile.place(highEnergyOldNoChildren);
 
-                while (!tile.growGrass(random));
+                while (!tile.growGrass());
                 tile.feed();
 
                 assert (highEnergyOldNoChildren.getEnergy() == energyHi + grassEnergy);
@@ -143,7 +143,7 @@ public class GrassTest {
                 highEnergyOldManyChildren.setStats(energyHi, childrenHi, ageHi);
                 tile.place(highEnergyOldManyChildren);
 
-                while (!tile.growGrass(random));
+                while (!tile.growGrass());
                 tile.feed();
 
                 assert (highEnergyOldManyChildren.getEnergy() == energyHi + grassEnergy);

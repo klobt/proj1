@@ -4,13 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fd36effe-b965-4fa7-b6c4-73095c763444" name="Changes" comment="Add mutations&#10;&#10;Didn't add any tests, because this mechanic is too unpredictable.">
+    <list default="true" id="fd36effe-b965-4fa7-b6c4-73095c763444" name="Changes" comment="Add Simulation class">
       <change afterPath="$PROJECT_DIR$/src/main/java/agh/ics/proj1/Simulation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/agh/ics/proj1/Config.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/agh/ics/proj1/Config.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/agh/ics/proj1/GenomeTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/agh/ics/proj1/GenomeTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/agh/ics/proj1/GlobeTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/agh/ics/proj1/GlobeTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/agh/ics/proj1/GrassTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/agh/ics/proj1/GrassTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/agh/ics/proj1/GlobeMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/agh/ics/proj1/GlobeMap.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -294,7 +292,14 @@
       <option name="project" value="LOCAL" />
       <updated>1673213412796</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Refactor Config">
+      <created>1673214451843</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1673214451843</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -315,23 +320,11 @@
     <MESSAGE value="Add breeding" />
     <MESSAGE value="Take set amount of energy from parents" />
     <MESSAGE value="Add mutations&#10;&#10;Didn't add any tests, because this mechanic is too unpredictable." />
-    <option name="LAST_COMMIT_MESSAGE" value="Add mutations&#10;&#10;Didn't add any tests, because this mechanic is too unpredictable." />
+    <MESSAGE value="Refactor Config" />
+    <MESSAGE value="Add Simulation class" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add Simulation class" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/agh/ics/proj1/GenomeTest.java</url>
-          <line>46</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/agh/ics/proj1/GrassTile.java</url>
-          <line>70</line>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
         <PinnedItemInfo parentTag="agh.ics.proj1.Animal" memberName="genome" />

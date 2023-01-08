@@ -1,11 +1,8 @@
 package agh.ics.proj1;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.Set;
-import java.util.Stack;
+import java.util.*;
 
-public class GlobeMap {
+public class GlobeMap implements Iterable<GrassTile> {
     private final Vector2d bounds;
     private final ArrayList<MapTile> tiles = new ArrayList<>();
 
@@ -84,5 +81,30 @@ public class GlobeMap {
 
     public MapTile at(Vector2d position) {
         return at(position.getIntX(), position.getIntY());
+    }
+
+
+    @Override
+    public Iterator<GrassTile> iterator() {
+        return new Iterator<>() {
+            int x = 0, y = 0;
+
+            @Override
+            public boolean hasNext() {
+                return x < bounds.getIntX() || y < bounds.getIntY();
+            }
+
+            @Override
+            public GrassTile next() {
+                GrassTile tile = (GrassTile) at(x, y);
+                if (x == bounds.getIntX() - 1) {
+                    x = 0;
+                    y++;
+                } else {
+                    x++;
+                }
+                return tile;
+            }
+        };
     }
 }

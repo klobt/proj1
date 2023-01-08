@@ -1,6 +1,6 @@
 package agh.ics.proj1;
 
-import java.util.Arrays;
+import java.util.*;
 
 public class Animal {
     private final Config config;
@@ -40,8 +40,17 @@ public class Animal {
             domGenomeOffset = subGenes;
             subGenomeOffset = 0;
         }
-        if (domGenes >= 0) System.arraycopy(domParent.genome, 0, genome, domGenomeOffset, domGenes);
-        if (subGenes >= 0) System.arraycopy(subParent.genome, 0, genome, subGenomeOffset, subGenes);
+        System.arraycopy(domParent.genome, 0, genome, domGenomeOffset, domGenes);
+        System.arraycopy(subParent.genome, 0, genome, subGenomeOffset, subGenes);
+        int mutationN = config.random.nextInt(genome.length);
+        List<Integer> unvisited = new ArrayList<>();
+        for (int i = 0; i < genome.length; i++) {
+            unvisited.add(i);
+        }
+        Collections.shuffle(unvisited, config.random);
+        for (int i = 0; i < mutationN; i++) {
+            genome[unvisited.get(i)] = config.random.nextInt(8);
+        }
     }
 
     public int getOrientation() {

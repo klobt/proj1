@@ -4,11 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fd36effe-b965-4fa7-b6c4-73095c763444" name="Changes" comment="Add breeding">
+    <list default="true" id="fd36effe-b965-4fa7-b6c4-73095c763444" name="Changes" comment="Take set amount of energy from parents">
       <change afterPath="$PROJECT_DIR$/src/main/java/agh/ics/proj1/Simulation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/agh/ics/proj1/Animal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/agh/ics/proj1/Animal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/agh/ics/proj1/GrassTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/agh/ics/proj1/GrassTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,7 +46,7 @@
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RunManager" selected="Gradle.GrassTest.eatingTest">
+  <component name="RunManager" selected="Gradle.Tests in 'proj1.test'">
     <configuration name="GenomeTest.breedingTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -163,8 +162,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.GrassTest.eatingTest" />
         <item itemvalue="Gradle.Tests in 'proj1.test'" />
+        <item itemvalue="Gradle.GrassTest.eatingTest" />
         <item itemvalue="Gradle.GenomeTest.breedingTest" />
         <item itemvalue="Gradle.GrassTest.peckingOrderTest" />
         <item itemvalue="Gradle.GenomeTest.squareMovement" />
@@ -278,7 +277,14 @@
       <option name="project" value="LOCAL" />
       <updated>1673207508510</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Take set amount of energy from parents">
+      <created>1673212913918</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1673212913918</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -297,7 +303,8 @@
     <MESSAGE value="Move random to Config" />
     <MESSAGE value="Pass random in Config" />
     <MESSAGE value="Add breeding" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add breeding" />
+    <MESSAGE value="Take set amount of energy from parents" />
+    <option name="LAST_COMMIT_MESSAGE" value="Take set amount of energy from parents" />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>

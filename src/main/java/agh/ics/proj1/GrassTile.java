@@ -61,4 +61,19 @@ public class GrassTile extends MapTile {
         }
         return false;
     }
+
+    public Animal breed() {
+        if (animals.size() >= 2) {
+            Animal a1 = animals.last();
+            animals.remove(a1);
+            Animal a2 = animals.last();
+            animals.add(a1);
+            if (a1.getEnergy() >= config.energyToBreed && a2.getEnergy() >= config.energyToBreed) {
+                Animal a3 = new Animal(config, a1, a2);
+                place(a3);
+                return a3;
+            }
+        }
+        return null;
+    }
 }

@@ -23,6 +23,27 @@ public class Animal {
         this(config, orientation, new int[config.genomeLength]);
     }
 
+    public Animal(Config config, Animal parent1, Animal parent2) {
+        this.config = config;
+        orientation = 0;
+        Animal domParent = parent1.energy >= parent2.energy ? parent1 : parent2;
+        Animal subParent = parent1.energy < parent2.energy ? parent1 : parent2;
+        double domShare = ((double) domParent.energy) / (double) (domParent.energy + subParent.energy);
+        int domGenes = (int) (domShare * config.genomeLength);
+        int subGenes = config.genomeLength - domGenes;
+        energy = parent1.takeEnergy(0.5) + parent2.takeEnergy(0.5);
+
+        genome = new int[config.genomeLength];
+        int domGenomeOffset = 0;
+        int subGenomeOffset = domGenes;
+        if (config.random.nextBoolean()) {
+            domGenomeOffset = subGenes;
+            subGenomeOffset = 0;
+        }
+        if (domGenes >= 0) System.arraycopy(domParent.genome, 0, genome, domGenomeOffset, domGenes);
+        if (subGenes >= 0) System.arraycopy(subParent.genome, 0, genome, subGenomeOffset, subGenes);
+    }
+
     public int getOrientation() {
         return orientation;
     }
@@ -45,6 +66,13 @@ public class Animal {
 
     public void addEnergy(double change) {
         energy += change;
+    }
+
+    public int takeEnergy(double percentage) {
+        assert(percentage >= 0 && percentage <= 1);
+        int taken = (int) (energy * percentage);
+        energy -= taken;
+        return taken;
     }
 
     public int getChildrenBegotten() {

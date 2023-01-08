@@ -9,8 +9,9 @@ public class Config {
     public final int animalInitialEnergy;
     public final int animalMoveEnergyCost;
     public final int genomeLength;
+    public final int energyToBreed;
 
-    public Config(Random random, int mapWidth, int mapHeight, int grassEnergy, int animalInitialEnergy, int animalMoveEnergyCost, int genomeLength) {
+    public Config(Random random, int mapWidth, int mapHeight, int grassEnergy, int animalInitialEnergy, int animalMoveEnergyCost, int genomeLength, int energyToBreed) {
         this.random = random;
         this.mapWidth = mapWidth;
         this.mapHeight = mapHeight;
@@ -18,9 +19,10 @@ public class Config {
         this.animalInitialEnergy = animalInitialEnergy;
         this.animalMoveEnergyCost = animalMoveEnergyCost;
         this.genomeLength = genomeLength;
+        this.energyToBreed = energyToBreed;
     }
 
-    public Config(int mapWidth, int mapHeight, int grassEnergy, int animalInitialEnergy, int animalMoveEnergyCost, int genomeLength) {
-        this(new Random(), mapWidth, mapHeight, grassEnergy, animalInitialEnergy, animalMoveEnergyCost, genomeLength);
+    public Config(int mapWidth, int mapHeight, int grassEnergy, int animalInitialEnergy, int animalMoveEnergyCost, int genomeLength, int energyToBreed) {
+        this(new Random(), mapWidth, mapHeight, grassEnergy, animalInitialEnergy, animalMoveEnergyCost, genomeLength, energyToBreed);
     }
 }

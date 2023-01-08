@@ -29,10 +29,12 @@ public class GrassTest {
 
     @Test
     public void eatingTest() {
-        Config config = new Config(0, 0, 10, 1);
         for (int i = 0; i < 100; i++) {
             Random random = new Random();
+            int grassEnergy = random.nextInt(100);
+            int initialEnergy = random.nextInt(100);
             int n = random.nextInt(1000);
+            Config config = new Config(0, 0, grassEnergy, initialEnergy);
             GrassTile[] tiles = new GrassTile[n];
             int grassN = 0;
             for (int j = 0; j < n; j++) {
@@ -52,7 +54,7 @@ public class GrassTest {
                 animal.move();
             }
             assert(tiles[n - 1].has(animal));
-            assert(animal.getEnergy() == 1 + grassN * 10);
+            assert(animal.getEnergy() == initialEnergy + grassN * grassEnergy);
         }
     }
 }

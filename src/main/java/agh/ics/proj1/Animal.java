@@ -3,7 +3,7 @@ package agh.ics.proj1;
 public class Animal {
     private int orientation;
     public Tile tile;
-    private double energy;
+    private int energy;
 
     public Animal(Config config, int orientation) {
         this.orientation = orientation;

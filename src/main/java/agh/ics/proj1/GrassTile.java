@@ -10,9 +10,9 @@ public class GrassTile extends MapTile {
     public boolean preferred;
     private boolean hasGrass = false;
 
-    public GrassTile(Config _config, boolean _preffered) {
-        config = _config;
-        this.preferred = _preffered;
+    public GrassTile(Config config, boolean preffered) {
+        this.config = config;
+        this.preferred = preffered;
     }
 
     @Override

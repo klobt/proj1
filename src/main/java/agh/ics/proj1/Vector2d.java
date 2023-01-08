@@ -3,9 +3,9 @@ package agh.ics.proj1;
 public class Vector2d {
     public double x, y;
 
-    public Vector2d(double _x, double _y) {
-        x = _x;
-        y = _y;
+    public Vector2d(double x, double y) {
+        this.x = x;
+        this.y = y;
     }
 
     public int getIntX() {

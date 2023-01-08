@@ -5,10 +5,10 @@ public class Config {
     public final double grassEnergy;
     public final double animalInitialEnergy;
 
-    public Config(int _mapWidth, int _mapHeight, double _grassEnergy, double _animalInitialEnergy) {
-        mapWidth = _mapWidth;
-        mapHeight = _mapHeight;
-        grassEnergy = _grassEnergy;
-        animalInitialEnergy = _animalInitialEnergy;
+    public Config(int mapWidth, int mapHeight, double grassEnergy, double animalInitialEnergy) {
+        this.mapWidth = mapWidth;
+        this.mapHeight = mapHeight;
+        this.grassEnergy = grassEnergy;
+        this.animalInitialEnergy = animalInitialEnergy;
     }
 }

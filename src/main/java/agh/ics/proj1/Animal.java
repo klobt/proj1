@@ -5,8 +5,8 @@ public class Animal {
     public Tile tile;
     private double energy;
 
-    public Animal(Config config, int _orientation) {
-        orientation = _orientation;
+    public Animal(Config config, int orientation) {
+        this.orientation = orientation;
         energy = config.animalInitialEnergy;
     }
 

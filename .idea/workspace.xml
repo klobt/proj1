@@ -5,23 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fd36effe-b965-4fa7-b6c4-73095c763444" name="Changes" comment="Różne rzeczy, pushuję na wszelki wypadek">
-      <change afterPath="$PROJECT_DIR$/src/main/java/agh/ics/proj1/ChangeListener.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/agh/ics/proj1/GeneticVariant.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/agh/ics/proj1/GrassVariant.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/agh/ics/proj1/HellTile.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/agh/ics/proj1/MapVariant.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/agh/ics/proj1/MoveVariant.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/agh/ics/proj1/gui/App.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/agh/ics/proj1/gui/SimulationWindow.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/agh/ics/proj1/Animal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/agh/ics/proj1/Animal.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/agh/ics/proj1/Config.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/agh/ics/proj1/Config.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/agh/ics/proj1/GlobeMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/agh/ics/proj1/GlobeMap.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/agh/ics/proj1/GrassTile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/agh/ics/proj1/GrassTile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/agh/ics/proj1/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/agh/ics/proj1/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/agh/ics/proj1/MapTile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/agh/ics/proj1/MapTile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/agh/ics/proj1/PolarTile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/agh/ics/proj1/PolarTile.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/agh/ics/proj1/Simulation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/agh/ics/proj1/Simulation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/agh/ics/proj1/gui/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/agh/ics/proj1/gui/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/agh/ics/proj1/gui/SimulationWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/agh/ics/proj1/gui/SimulationWindow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/agh/ics/proj1/GenomeTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/agh/ics/proj1/GenomeTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/agh/ics/proj1/GrassTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/agh/ics/proj1/GrassTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -121,7 +114,7 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="GrassTest.eatingTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="GlobeTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -134,7 +127,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;agh.ics.proj1.GrassTest.eatingTest&quot;" />
+            <option value="&quot;agh.ics.proj1.GlobeTest&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -144,7 +137,7 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="Tests in 'proj1.test'" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="GrassTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -156,6 +149,8 @@
         <option name="taskNames">
           <list>
             <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;agh.ics.proj1.GrassTest&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -167,11 +162,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.GrassTest" />
+        <item itemvalue="Gradle.GlobeTest" />
+        <item itemvalue="Gradle.GenomeTest" />
         <item itemvalue="Application.Main" />
         <item itemvalue="Gradle.GenomeTest.breedingTest" />
-        <item itemvalue="Gradle.Tests in 'proj1.test'" />
-        <item itemvalue="Gradle.GenomeTest" />
-        <item itemvalue="Gradle.GrassTest.eatingTest" />
       </list>
     </recent_temporary>
   </component>
@@ -310,7 +305,14 @@
       <option name="project" value="LOCAL" />
       <updated>1673216594475</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Różne rzeczy, pushuję na wszelki wypadek">
+      <created>1673303067316</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1673303067316</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">

@@ -21,14 +21,15 @@ public class GenomeTest {
         Random random = new Random();
         for (int i = 0; i < 10; i++) {
             int genomeLength = random.nextInt(10) + 1;
-            int initalEnergy = random.nextInt(100);
+            int initalEnergy = random.nextInt(100) + 1;
             int energyToBreed = random.nextInt(initalEnergy);
             Config config = new Config()
                     .random(random)
                     .animalInitialEnergy(initalEnergy)
                     .genomeLength(genomeLength)
+                    .energyHealthy(energyToBreed)
                     .energyToBreed(energyToBreed);
-            GrassTile tile = new GrassTile(config, true);
+            GrassTile tile = new GrassTile(config, new Vector2d(0, 0), true);
             int[] genome1 = new int[genomeLength];
             for (int j = 0; j < genomeLength; j++) {
                 genome1[j] = config.random.nextInt(8);

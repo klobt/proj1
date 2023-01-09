@@ -44,12 +44,14 @@ public class GrassTile extends MapTile {
         notifyOfChange();
     }
 
-    public void feed() {
+    public boolean feed() {
         if (hasGrass && !animals.isEmpty()) {
             animals.last().addEnergy(config.grassEnergy);
             hasGrass = false;
             notifyOfChange();
+            return true;
         }
+        return false;
     }
 
     @Override
@@ -82,7 +84,7 @@ public class GrassTile extends MapTile {
             animals.remove(a1);
             Animal a2 = animals.last();
             animals.add(a1);
-            if (a1.getEnergy() >= config.energyToBreed && a2.getEnergy() >= config.energyToBreed) {
+            if (a1.getEnergy() >= config.energyHealthy && a2.getEnergy() >= config.energyHealthy) {
                 Animal a3 = new Animal(config, a1, a2);
                 place(a3);
                 notifyOfChange();

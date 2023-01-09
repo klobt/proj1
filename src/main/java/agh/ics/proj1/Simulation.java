@@ -74,8 +74,9 @@ public class Simulation {
 
         // konsumpcja roślin na których pola weszły zwierzęta,
         for (GrassTile tile : globeMap) {
-            tile.feed();
-            statGrassEaten++;
+            if (tile.feed()) {
+                statGrassEaten++;
+            }
         }
 
         // rozmnażanie się najedzonych zwierząt znajdujących się na tym samym polu,

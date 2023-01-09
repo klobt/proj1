@@ -58,12 +58,20 @@ public class GlobeMap implements Iterable<GrassTile> {
             case HELL_BORDER -> {
                 HellTile hellTile = new HellTile(this);
                 for (int x = 0; x < bounds.getIntX(); x++) {
+                    at(x, 0).connect(hellTile, 7);
                     at(x, 0).connect(hellTile, 0);
+                    at(x, 0).connect(hellTile, 1);
+                    at(x, bounds.getIntY() - 1).connect(hellTile, 3);
                     at(x, bounds.getIntY() - 1).connect(hellTile, 4);
+                    at(x, bounds.getIntY() - 1).connect(hellTile, 5);
                 }
                 for (int y = 0; y < bounds.getIntY(); y++) {
+                    at(0, y).connect(hellTile, 5);
                     at(0, y).connect(hellTile, 6);
+                    at(0, y).connect(hellTile, 7);
+                    at(bounds.getIntX() - 1, y).connect(hellTile, 1);
                     at(bounds.getIntX() - 1, y).connect(hellTile, 2);
+                    at(bounds.getIntX() - 1, y).connect(hellTile, 3);
                 }
             }
         }

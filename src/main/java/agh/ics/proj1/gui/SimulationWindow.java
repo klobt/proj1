@@ -5,6 +5,7 @@ import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
@@ -16,6 +17,7 @@ public class SimulationWindow implements ChangeListener<GrassTile> {
     private final Config config;
     private final Simulation simulation;
     private final GridPane gridPane = new GridPane();
+    private final VBox stats = new VBox();
     private final int cellSize = 20;
     private Thread simulationThread = null;
 
@@ -28,6 +30,8 @@ public class SimulationWindow implements ChangeListener<GrassTile> {
         fillGrid();
 
         BorderPane borderPane = new BorderPane();
+
+        borderPane.setLeft(stats);
 
         ScrollPane scrollPane = new ScrollPane();
         scrollPane.setContent(gridPane);
@@ -87,6 +91,15 @@ public class SimulationWindow implements ChangeListener<GrassTile> {
         }
     }
 
+    private void updateStats() {
+        stats.getChildren().clear();
+        stats.getChildren().add(new Label("Urodziło się: " + simulation.statBorn));
+        stats.getChildren().add(new Label("Umarło się: " + simulation.statDead));
+        stats.getChildren().add(new Label("Trawy urosło: " + simulation.statGrassGrown));
+        stats.getChildren().add(new Label("Trawy zjedzono: " + simulation.statGrassEaten));
+        stats.getChildren().add(new Label("Ruchów zrobiono: " + simulation.statMovesMade));
+    }
+
     @Override
     public void onChange(GrassTile current) {
         Platform.runLater(() -> {
@@ -113,6 +126,7 @@ public class SimulationWindow implements ChangeListener<GrassTile> {
             }
             stackPane.getChildren().add(animalGrid);
             gridPane.add(stackPane, current.getPosition().getIntX(), current.getPosition().getIntY());
+            updateStats();
         });
     }
 }

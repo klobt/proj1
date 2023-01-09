@@ -12,6 +12,7 @@ public class Config {
     public int genomeLength = 1;
     public int minMutations = 0;
     public int maxMutations = 0;
+    public int energyHealthy = 0;
     public int energyToBreed = 0;
     public int startingGrass = 0;
     public int startingAnimals = 0;
@@ -59,6 +60,11 @@ public class Config {
 
     public Config maxMutations(int maxMutations) {
         this.maxMutations = maxMutations;
+        return this;
+    }
+
+    public Config energyHealthy(int energyHealthy) {
+        this.energyHealthy = energyHealthy;
         return this;
     }
 

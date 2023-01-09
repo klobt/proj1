@@ -38,7 +38,7 @@ public class GrassTest {
             GrassTile[] tiles = new GrassTile[n];
             int grassN = 0;
             for (int j = 0; j < n; j++) {
-                tiles[j] = new GrassTile(config, random.nextBoolean());
+                tiles[j] = new GrassTile(config, new Vector2d(j, 0), random.nextBoolean());
                 if (tiles[j].growGrass()) {
                     grassN++;
                 }
@@ -80,7 +80,7 @@ public class GrassTest {
             int childrenHi = random.nextInt(100);
 
             {
-                GrassTile tile = new GrassTile(config, true);
+                GrassTile tile = new GrassTile(config, new Vector2d(0, 0), true);
 
                 Animal lowEnergyYoungNoChildren = new Animal(config, 0);
                 lowEnergyYoungNoChildren.setStats(energyLo, 0, ageLo);
@@ -92,7 +92,7 @@ public class GrassTest {
                 assert (lowEnergyYoungNoChildren.getEnergy() == energyLo + grassEnergy);
             }
             {
-                GrassTile tile = new GrassTile(config, true);
+                GrassTile tile = new GrassTile(config, new Vector2d(0, 0), true);
 
                 Animal lowEnergyYoungNoChildren = new Animal(config, 0);
                 lowEnergyYoungNoChildren.setStats(energyLo, 0, ageLo);
@@ -108,7 +108,7 @@ public class GrassTest {
                 assert (highEnergyYoungNoChildren.getEnergy() == energyHi + grassEnergy);
             }
             {
-                GrassTile tile = new GrassTile(config, true);
+                GrassTile tile = new GrassTile(config, new Vector2d(0, 0), true);
 
                 Animal lowEnergyYoungNoChildren = new Animal(config, 0);
                 lowEnergyYoungNoChildren.setStats(energyLo, 0, ageLo);
@@ -128,7 +128,7 @@ public class GrassTest {
                 assert (highEnergyOldNoChildren.getEnergy() == energyHi + grassEnergy);
             }
             {
-                GrassTile tile = new GrassTile(config, true);
+                GrassTile tile = new GrassTile(config, new Vector2d(0, 0), true);
 
                 Animal lowEnergyYoungNoChildren = new Animal(config, 0);
                 lowEnergyYoungNoChildren.setStats(energyLo, 0, ageLo);

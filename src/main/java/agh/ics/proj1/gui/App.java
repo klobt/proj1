@@ -27,6 +27,9 @@ public class App extends Application {
     private final TextField animalInitialEnergy = new TextField(config.animalInitialEnergy + "");
     private final TextField animalMoveEnergyCost = new TextField(config.animalMoveEnergyCost + "");
     private final TextField genomeLength = new TextField(config.genomeLength + "");
+    private final TextField minMutations = new TextField(config.minMutations + "");
+    private final TextField maxMutations = new TextField(config.maxMutations + "");
+    private final TextField energyHealthy = new TextField(config.energyHealthy + "");
     private final TextField energyToBreed = new TextField(config.energyToBreed + "");
     private final TextField startingGrass = new TextField(config.startingGrass + "");
     private final TextField startingAnimals = new TextField(config.startingAnimals + "");
@@ -65,7 +68,7 @@ public class App extends Application {
         gridPane.add(animalInitialEnergy, 1, 4);
         gridPane.add(new Label("Energia potrzebna do poruszania się"), 0, 5);
         gridPane.add(animalMoveEnergyCost, 1, 5);
-        gridPane.add(new Label("Energia potrzebna do rozmnożenia"), 0, 6);
+        gridPane.add(new Label("Energia zużywana w rozmnażaniu"), 0, 6);
         gridPane.add(energyToBreed, 1, 6);
         gridPane.add(new Label("Długość genomu"), 0, 7);
         gridPane.add(genomeLength, 1, 7);
@@ -83,12 +86,35 @@ public class App extends Application {
         gridPane.add(geneticVariant, 1, 13);
         gridPane.add(new Label("Wariant zachowania"), 0, 14);
         gridPane.add(moveVariant, 1, 14);
+        gridPane.add(new Label("Min. liczba mutacji"), 0, 15);
+        gridPane.add(minMutations, 1, 15);
+        gridPane.add(new Label("Maks. liczba mutacji"), 0, 16);
+        gridPane.add(maxMutations, 1, 16);
+        gridPane.add(new Label("Energia wymagana do rozmnażania"), 0, 17);
+        gridPane.add(energyHealthy, 1, 17);
 
 
         vbox.getChildren().add(gridPane);
 
         Button launchSimulationButton = new Button("LAUNCH");
         launchSimulationButton.setOnAction(event -> {
+            config.simulationStepDelay(Integer.parseInt(simulationStepDelay.getText()));
+            config.mapDimensions(Integer.parseInt(mapWidth.getText()), Integer.parseInt(mapHeight.getText()));
+            config.grassEnergy(Integer.parseInt(grassEnergy.getText()));
+            config.animalInitialEnergy(Integer.parseInt(animalInitialEnergy.getText()));
+            config.animalMoveEnergyCost(Integer.parseInt(animalMoveEnergyCost.getText()));
+            config.genomeLength(Integer.parseInt(genomeLength.getText()));
+            config.minMutations(Integer.parseInt(minMutations.getText()));
+            config.maxMutations(Integer.parseInt(maxMutations.getText()));
+            config.energyHealthy(Integer.parseInt(energyHealthy.getText()));
+            config.energyToBreed(Integer.parseInt(energyToBreed.getText()));
+            config.startingGrass(Integer.parseInt(startingGrass.getText()));
+            config.startingAnimals(Integer.parseInt(startingAnimals.getText()));
+            config.dailyGrass(Integer.parseInt(dailyGrass.getText()));
+            config.mapVariant(mapVariant.getValue());
+            config.grassVariant(grassVariant.getValue());
+            config.geneticVariant(geneticVariant.getValue());
+            config.moveVariant(moveVariant.getValue());
             Stage stage = new Stage();
             SimulationWindow simulationWindow = new SimulationWindow(config);
             simulationWindow.start(stage);

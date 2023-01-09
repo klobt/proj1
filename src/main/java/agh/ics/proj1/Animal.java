@@ -42,14 +42,25 @@ public class Animal {
         }
         System.arraycopy(domParent.genome, 0, genome, domGenomeOffset, domGenes);
         System.arraycopy(subParent.genome, 0, genome, subGenomeOffset, subGenes);
-        int mutationN = config.random.nextInt(genome.length);
+        int mutationN =
+                (config.maxMutations == config.minMutations
+                        ? 0
+                        : config.random.nextInt(config.maxMutations - config.minMutations)
+                ) + config.minMutations;
         List<Integer> unvisited = new ArrayList<>();
         for (int i = 0; i < genome.length; i++) {
             unvisited.add(i);
         }
         Collections.shuffle(unvisited, config.random);
         for (int i = 0; i < mutationN; i++) {
-            genome[unvisited.get(i)] = config.random.nextInt(8);
+            switch (config.geneticVariant) {
+                case TOTAL_RANDOMNESS -> {
+                    genome[unvisited.get(i)] = config.random.nextInt(8);
+                }
+                case SMALL_CORRECTION -> {
+                    genome[unvisited.get(i)] += 1 - 2 * config.random.nextInt(2);
+                }
+            }
         }
     }
 
@@ -61,7 +72,18 @@ public class Animal {
         if (takeEnergy(config.animalMoveEnergyCost) == config.animalMoveEnergyCost) {
             orientation = (orientation + genome[active]) % 8;
             tile.moveForward(this);
-            active = (active + 1) % genome.length;
+            switch (config.moveVariant) {
+                case TOTAL_DETERMINISM -> {
+                    active = (active + 1) % genome.length;
+                }
+                case A_BIT_CRAZY -> {
+                    if (config.random.nextInt(5) <= 3) {
+                        active = (active + 1) % genome.length;
+                    } else {
+                        active = config.random.nextInt(8);
+                    }
+                }
+            }
             movesMade++;
         }
     }

@@ -21,8 +21,11 @@ public class GrassTile extends MapTile {
     private final SortedSet<Animal> animals = new TreeSet<>(new PeckingOrder());
     public boolean preferred;
     private boolean hasGrass = false;
+    private final Set<ChangeListener<GrassTile>> listeners = new HashSet<>();
+    public int deaths = 0;
 
-    public GrassTile(Config config, boolean preffered) {
+    public GrassTile(Config config, Vector2d position, boolean preffered) {
+        super(position);
         this.config = config;
         this.preferred = preffered;
     }
@@ -31,12 +34,21 @@ public class GrassTile extends MapTile {
     public void place(Animal animal) {
         animals.add(animal);
         animal.tile = this;
+        notifyOfChange();
+    }
+
+    public void takeTheDead(Animal animal) {
+        animals.remove(animal);
+        animal.tile = null;
+        deaths++;
+        notifyOfChange();
     }
 
     public void feed() {
         if (hasGrass && !animals.isEmpty()) {
             animals.last().addEnergy(config.grassEnergy);
             hasGrass = false;
+            notifyOfChange();
         }
     }
 
@@ -51,12 +63,14 @@ public class GrassTile extends MapTile {
         if (nextTile != null) {
             animals.remove(animal);
             nextTile.place(animal);
+            notifyOfChange();
         }
     }
 
     public boolean growGrass() {
         if (!hasGrass && config.random.nextDouble() < (preferred ? 0.8 : 0.2)) {
             hasGrass = true;
+            notifyOfChange();
             return true;
         }
         return false;
@@ -71,9 +85,28 @@ public class GrassTile extends MapTile {
             if (a1.getEnergy() >= config.energyToBreed && a2.getEnergy() >= config.energyToBreed) {
                 Animal a3 = new Animal(config, a1, a2);
                 place(a3);
+                notifyOfChange();
                 return a3;
             }
         }
         return null;
+    }
+
+    public void notifyOfChange() {
+        for (ChangeListener<GrassTile> listener : listeners) {
+            listener.onChange(this);
+        }
+    }
+
+    public void addListener(ChangeListener<GrassTile> listener) {
+        listeners.add(listener);
+    }
+
+    public SortedSet<Animal> getAnimals() {
+        return animals;
+    }
+
+    public boolean hasGrass() {
+        return hasGrass;
     }
 }
